@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="../static/js/main.js"></script>
+
+    
+</head>
+<body>
+
+    <div class="all-page">
+    <h1 class="head"> images genrated from filter the use partial differential equations </h1>
+    {%+ if already_generated %}
+    <br>
+    <h2 class="exist">These images are alredy generated before</h2>
+    {% endif %}
+
+    <div class="all-images"> 
+    {% for i in range(2) %}
+    <div class="image-div">
+    {%if i == 0 %}
+    <p class="tex">image before</p>
+    {% endif %}
+    {%if i == 1 %}
+    <p class="tex">image After</p>
+    {% endif %}
+
+    <img name={{name_of_folder}} src="/static/SavedData/{{name_of_folder}}/{{name_of_folder}}_0{{i}}.png" alt="alternative text" width="500">
+    <br>
+    <a  class="link-down" for="{{name_of_folder}}" class="link-button" download="{{name_of_folder}}" href="/static/SavedData/{{name_of_folder}}/{{name_of_folder}}_0{{i}}.png" title="{{name_of_folder}}">download {{name_of_folder}}_0{{i}}</a>
+    </div>   
+    {% endfor %}
+    
+    <button class="button-down" onclick="download_all()">download all</button>
+    </div>
+    </div>
+
+</body>
+</html>
+<!-- name_of_folder -->
